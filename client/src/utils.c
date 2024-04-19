@@ -26,14 +26,14 @@ int crear_conexion(char *ip, char* puerto)
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_flags = AI_PASSIVE;
 
-	getaddrinfo(ip, puerto, &hints, &server_info);
+	getaddrinfo(ip, "4444", &hints, &server_info);
 
 	// Ahora vamos a crear el socket.
 	int socket_cliente = 0;
 
 	// Ahora que tenemos el socket, vamos a conectarlo
-
-
+	int fd_econexion = socket(server_info->ai_family, server_info->ai_socktype,server_info->ai_protocol)
+	err = connect(fd_conexion, server_info->ai_addr, server_info->ai_addrlen);
 	freeaddrinfo(server_info);
 
 	return socket_cliente;
